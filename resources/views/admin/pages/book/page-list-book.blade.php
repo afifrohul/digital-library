@@ -4,7 +4,7 @@
 @endsection
 @section('content')
 <div>
-    <a href="{{url('/back-user/bookUser/add')}}" class="btn-shadow w-56">Tambah Buku</a>
+    <a href="{{url('/back-admin/book/add')}}" class="btn-shadow w-56">Tambah Buku</a>
     <div class="mt-6">
         <div class="card mb-6">
             <div class="card-body">

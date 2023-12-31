@@ -67,8 +67,8 @@
     <link rel="stylesheet" type="text/css" href="{{asset('assetBack/vendor/select2/select2.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assetBack/css/util.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('assetBack/css/main.css')}}">
-    <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
-    <link rel="icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{asset('assets/logos/digital-library-logo.png')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('assets/logos/digital-library-logo.png')}}" type="image/x-icon">
 
 </head>
 <body>
@@ -77,7 +77,7 @@
         {{-- <div class="container-login100"> --}}
             <div class="wrap-login100">
                 <div class="login100-pic js-tilt" data-tilt>
-                    <img src="{{asset('frontend/images/logo_election_vote.png')}}" alt="IMG">
+                    <img src="{{asset('assets/logos/digital-library-logo.png')}}" alt="IMG">
                 </div>
                 <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
                     @csrf

@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
-  {{-- <link rel="icon" href="{{ asset('assets/logos/Logo HMIF Compress.png') }}" type="image/x-icon"> --}}
+  <link rel="shortcut icon" href="{{asset('assets/logos/digital-library-logo.png')}}" type="image/x-icon">
+  <link rel="icon" href="{{asset('assets/logos/digital-library-logo.png')}}" type="image/x-icon">
   <title>Digital Library | User</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">

@@ -25,6 +25,12 @@ class AdminBookController extends Controller
         return view('admin.pages.book.page-list-book', $this->param);
     }
 
+    public function add()
+    {
+        $this->param['getAllCategoryBook'] = CategoryBook::all();
+        return view('admin.pages.book.page-add-book', $this->param);
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, 
@@ -142,8 +148,12 @@ class AdminBookController extends Controller
     {
         try {
             Book::find($book->id)->delete();
-            File::delete('assets/upload/cover/'.$book->cover);
-            File::delete('assets/upload/file/'.$book->file);
+            if ($book->cover !== 'default.png'){
+                File::delete('assets/upload/cover/'.$book->cover);
+            }
+            if ($book->file !== 'default.pdf'){
+                File::delete('assets/upload/file/'.$book->file);
+            }
             return redirect('/back-admin/book')->withStatus('Berhasil menghapus data.');
         } catch(\Throwable $e){
             return redirect()->back()->withError($e->getMessage());

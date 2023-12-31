@@ -36,6 +36,7 @@ Route::group(['middleware' => ['role:admin']], function() {
     Route::delete('back-admin/category/destroy/{category}', [AdminCategoryBookController::class, 'destroy']);
     
     Route::get('back-admin/book', [AdminBookController::class, 'index']);
+    Route::get('back-admin/book/add', [AdminBookController::class, 'add']);
     Route::post('back-admin/book/new', [AdminBookController::class, 'store']);
     Route::post('back-admin/book/edit/{book}', [AdminBookController::class, 'edit']);
     Route::put('back-admin/book/update/{book}', [AdminBookController::class, 'update']);

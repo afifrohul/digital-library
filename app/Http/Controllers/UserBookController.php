@@ -163,8 +163,12 @@ class UserBookController extends Controller
     {
         try {
             Book::find($book->id)->delete();
-            File::delete('assets/upload/cover/'.$book->cover);
-            File::delete('assets/upload/file/'.$book->file);
+            if ($book->cover !== 'default.png'){
+                File::delete('assets/upload/cover/'.$book->cover);
+            }
+            if ($book->file !== 'default.pdf'){
+                File::delete('assets/upload/file/'.$book->file);
+            }
             return redirect('/back-user/book')->withStatus('Berhasil menghapus data.');
         } catch(\Throwable $e){
             return redirect()->back()->withError($e->getMessage());
