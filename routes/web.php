@@ -61,4 +61,8 @@ Route::group(['middleware' => ['role:user']], function() {
 
 });
 
+Route::get('/documentation-api', function () {
+    return view('admin.pages.documentation.api');
+});
+
 require __DIR__.'/auth.php';
