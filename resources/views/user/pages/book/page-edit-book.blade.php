@@ -1,4 +1,4 @@
-@extends('admin.layouts.app')
+@extends('user.layouts.app')
 @section('content')
 <div>
     <div class="card mb-8">
@@ -6,7 +6,7 @@
             <h1 class="h6">Edit Buku</h1>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{url('/back-admin/book/update',$getDetailBook->id)}}" enctype="multipart/form-data">
+            <form method="POST" action="{{url('/back-user/book/update',$getDetailBook->id)}}" enctype="multipart/form-data">
                 @method('PUT')
                 @csrf
                 <div>

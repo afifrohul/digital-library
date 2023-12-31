@@ -8,14 +8,19 @@ use App\Models\CategoryBook;
 use Illuminate\Support\Facades\Auth;
 use File;
 
-class AdminBookController extends Controller
+class UserBookController extends Controller
 {
     private $param;
     public function index()
     {
-        $this->param['getAllBook'] = Book::all();
+        $this->param['getAllBook'] = Book::where('user_id', \Auth::id())->get();
+        return view('user.pages.book.page-list-book', $this->param);
+    }
+
+    public function add()
+    {
         $this->param['getAllCategoryBook'] = CategoryBook::all();
-        return view('admin.pages.book.page-list-book', $this->param);
+        return view('user.pages.book.page-add-book', $this->param);
     }
 
     public function store(Request $request)
@@ -60,7 +65,7 @@ class AdminBookController extends Controller
             }
             $book->user_id = Auth::id();
             $book->save();
-            return redirect('/back-admin/book')->withStatus('Berhasil menambah data.');
+            return redirect('/back-user/book')->withStatus('Berhasil menambah data.');
         } catch (\Exception $e) {
             return redirect()->back()->withError($e->getMessage());
         } catch (\Illuminate\Database\QueryException $e) {
@@ -73,7 +78,7 @@ class AdminBookController extends Controller
     {
         try {$this->param['getAllCategoryBook'] = CategoryBook::all();
             $this->param['getDetailBook'] = Book::find($book->id);
-            return view('admin.pages.book.page-edit-book', $this->param);
+            return view('user.pages.book.page-edit-book', $this->param);
         } catch(\Throwable $e){
             return redirect()->back()->withError($e->getMessage());
         } catch(\Illuminate\Database\QueryException $e){
@@ -122,7 +127,7 @@ class AdminBookController extends Controller
             } 
             $book->save();
 
-            return redirect('/back-admin/book')->withStatus('Berhasil menambah data.');
+            return redirect('/back-user/book')->withStatus('Berhasil menambah data.');
         } catch (\Exception $e) {
             return redirect()->back()->withError($e->getMessage());
         } catch (\Illuminate\Database\QueryException $e) {
@@ -137,11 +142,12 @@ class AdminBookController extends Controller
             Book::find($book->id)->delete();
             File::delete('assets/upload/cover/'.$book->cover);
             File::delete('assets/upload/file/'.$book->file);
-            return redirect('/back-admin/book')->withStatus('Berhasil menghapus data.');
+            return redirect('/back-user/book')->withStatus('Berhasil menghapus data.');
         } catch(\Throwable $e){
             return redirect()->back()->withError($e->getMessage());
         } catch(\Illuminate\Database\QueryException $e){
             return redirect()->back()->withError($e->getMessage());
         }
     }
+
 }

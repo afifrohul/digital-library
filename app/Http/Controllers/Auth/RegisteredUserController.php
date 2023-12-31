@@ -11,6 +11,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Traits\HasRoles;
+
 class RegisteredUserController extends Controller
 {
     /**
@@ -46,6 +50,7 @@ class RegisteredUserController extends Controller
         ]);
 
         event(new Registered($user));
+        $user->assignRole('user');
 
         Auth::login($user);
 

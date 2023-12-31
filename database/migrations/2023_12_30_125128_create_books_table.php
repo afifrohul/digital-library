@@ -21,6 +21,7 @@ class CreateBooksTable extends Migration
             $table->integer('qty');
             $table->string('file');
             $table->string('cover');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

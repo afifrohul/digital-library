@@ -14,11 +14,11 @@
 
         <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">Master Data</p>
         <a href="{{url('/back-admin/category')}}" class="mb-3 @if (Request::segment(2) == 'category') text-teal-600 @endif capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
-            <i class="fad fa-bullseye-arrow text-xs mr-2"></i>
+            <i class="fad fa-book text-xs mr-2"></i>
             &nbsp;Kategori Buku
         </a>
         <a href="{{url('/back-admin/book')}}" class="mb-3 @if (Request::segment(2) == 'book') text-teal-600 @endif capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
-            <i class="fad fa-bullseye-pointer text-xs mr-2"></i>
+            <i class="fad fa-book-open text-xs mr-2"></i>
             &nbsp;Buku
         </a>
 

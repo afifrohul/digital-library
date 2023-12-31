@@ -33,6 +33,30 @@ class UserSeeder extends Seeder
         $admin->save();
         event(new Registered($admin));
         $admin->assignRole('admin');
+        
+        $user = new \App\Models\User();
+        $user->name = 'Afif';
+        $user->email = 'afifmemyself22@gmail.com';
+        $user->email_verified_at = now();
+        $user->password = \Hash::make('afifafif');
+        $user->remember_token = \Str::random(60);
+        $user->created_at = now();
+        $user->updated_at = now();
+        $user->save();
+        event(new Registered($user));
+        $user->assignRole('user');
+        
+        $user = new \App\Models\User();
+        $user->name = 'Rohul';
+        $user->email = 'rohulmemyself22@gmail.com';
+        $user->email_verified_at = now();
+        $user->password = \Hash::make('rohulrohul');
+        $user->remember_token = \Str::random(60);
+        $user->created_at = now();
+        $user->updated_at = now();
+        $user->save();
+        event(new Registered($user));
+        $user->assignRole('user');
 
     }
 }
