@@ -1,4 +1,4 @@
-<x-guest-layout>
+{{-- <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
@@ -51,4 +51,73 @@
             </div>
         </form>
     </x-auth-card>
-</x-guest-layout>
+</x-guest-layout> --}}
+
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="no-js">
+<head>
+	<title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="{{asset('assetBack/vendor/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assetBack/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assetBack/vendor/animate/animate.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assetBack/vendor/css-hamburgers/hamburgers.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assetBack/vendor/select2/select2.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assetBack/css/util.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assetBack/css/main.css')}}">
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
+
+</head>
+<body>
+	<div class="limiter">
+        <div class="container-login100" style="background-image: url({{ asset('assets/img-admin/bg.png') }})">
+        {{-- <div class="container-login100"> --}}
+            <div class="wrap-login100">
+                <div class="login100-pic js-tilt" data-tilt>
+                    <img src="{{asset('frontend/images/logo_election_vote.png')}}" alt="IMG">
+                </div>
+                <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <span class="login100-form-title" style="color: white;">Digital Library Login</span>
+                    <!-- Session Status -->
+                    <x-auth-session-status class="mb-4" :status="session('status')" />
+
+                    <!-- Validation Errors -->
+                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                    <div class="wrap-input100 validate-input" data-validate = "Valid email is required">
+                        <input class="input100" type="text" name="email" placeholder="email">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100"><i class="fa fa-at" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                        <input class="input100" type="password" name="password" placeholder="Password">
+                        <span class="focus-input100"></span>
+                        <span class="symbol-input100"> <i class="fa fa-lock" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" type="submit">
+                            Login
+                        </button>
+                    </div>
+                    <a href="{{url('/register')}}" class="register-text" style="color: white;">Register?</a>
+                </form>
+            </div>
+        </div>
+    </div>
+	
+    <script src="{{asset('assetBack/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{asset('assetBack/vendor/bootstrap/js/popper.js')}}"></script>
+    <script src="{{asset('assetBack/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('assetBack/vendor/select2/select2.min.js')}}"></script>
+    <script src="{{asset('assetBack/vendor/tilt/tilt.jquery.min.js')}}"></script>
+    <script >
+        $('.js-tilt').tilt({
+            scale: 1.1
+        })
+    </script>
+    <script src="{{asset('assetBack/js/main.js')}}"></script>
+</body>
+</html>
