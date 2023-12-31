@@ -16,7 +16,7 @@
                         </div>
                     </form>
                     @foreach ($getAllCategoryBook as $itemCategoryBook)
-                    <form method="GET" action="{{url('/back-admin/book?category='.$itemCategoryBook->id)}}">
+                    <form method="GET" action="{{url('/back-admin/book?category_book_id='.$itemCategoryBook->id)}}">
                         <div class="mt-5">
                             <input type="number" value="{{$itemCategoryBook->id}}" class="hidden" name="category_book_id">
                             <button type="submit" class="btn-shadow">{{$itemCategoryBook->name}}</button>
@@ -30,6 +30,13 @@
     <div class="card">
         <div class="card-header flex flex-row justify-between">
             <h1 class="h6">List Buku</h1>
+            <div class="flex flex-row gap-2">
+
+                <a href="{{url('/book/export')}}" target="_blank" class="btn-shadow text-sm w-56">Export Semua Data Buku</a>
+                @foreach ($getAllCategoryBook as $itemCategoryBook)
+                <a href="{{url('/book/export?category_book_id='.$itemCategoryBook->id)}}" target="_blank" class="btn-shadow text-sm w-56">Export Data Buku {{$itemCategoryBook->name}}</a>
+                @endforeach
+            </div>
         </div>
         <div class="card-body">
             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg p-3">

@@ -3,8 +3,8 @@
 <link href="{{ asset('assets/vendor-admin/summernote/summernote.min.css') }}" rel="stylesheet">
 @endsection
 @section('content')
-<div>
-    <div class="card mb-8">
+<div class="grid grid-cols-2 gap-6">
+    <div class="card mb-6 ">
         <div class="card-body">
             <label class="text-gray-700 ml-1">Filter berdasarkan kategori buku </label>
             <div class="flex gap-6">
@@ -14,12 +14,23 @@
                     </div>
                 </form>
                 @foreach ($getAllCategoryBook as $itemCategoryBook)
-                <form method="GET" action="{{url('/back-user/book?category='.$itemCategoryBook->id)}}">
+                <form method="GET" action="{{url('/back-user/book?category_book_id='.$itemCategoryBook->id)}}">
                     <div class="mt-5">
                         <input type="number" value="{{$itemCategoryBook->id}}" class="hidden" name="category_book_id">
                         <button type="submit" class="btn-shadow">{{$itemCategoryBook->name}}</button>
                     </div>
                 </form>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <div class="card mb-6 ">
+        <div class="card-body">
+            <label class="text-gray-700 ml-1">Export Data Buku berdasarkan kategori </label>
+            <div class="flex gap-6">
+                <a href="{{url('/book/export')}}" target="_blank" class="mt-5 btn-shadow">Semua</a>
+                @foreach ($getAllCategoryBook as $itemCategoryBook)
+                <a href="{{url('/book/export?category_book_id='.$itemCategoryBook->id)}}" target="_blank" class="mt-5 btn-shadow">{{$itemCategoryBook->name}}</a>
                 @endforeach
             </div>
         </div>

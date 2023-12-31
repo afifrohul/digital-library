@@ -6,8 +6,8 @@
 <div>
     <a href="{{url('/back-user/bookUser/add')}}" class="btn-shadow w-56">Tambah Buku</a>
 </div>
-<div class="mt-8">
-    <div class="card mb-8">
+<div class="mt-6 grid grid-cols-2 gap-6">
+    <div class="card mb-6">
         <div class="card-body">
             <label class="text-gray-700 ml-1">Filter berdasarkan kategori buku </label>
             <div class="flex gap-6">
@@ -17,7 +17,7 @@
                     </div>
                 </form>
                 @foreach ($getAllCategoryBook as $itemCategoryBook)
-                <form method="GET" action="{{url('/back-user/bookUser?category='.$itemCategoryBook->id)}}">
+                <form method="GET" action="{{url('/back-user/bookUser?category_book_id='.$itemCategoryBook->id)}}">
                     <div class="mt-5">
                         <input type="number" value="{{$itemCategoryBook->id}}" class="hidden" name="category_book_id">
                         <button type="submit" class="btn-shadow">{{$itemCategoryBook->name}}</button>
@@ -27,9 +27,20 @@
             </div>
         </div>
     </div>
+    <div class="card mb-6">
+        <div class="card-body">
+            <label class="text-gray-700 ml-1">Export Data Buku berdasarkan Kategori </label>
+            <div class="flex gap-6">
+                <a href="{{url('/bookUser/export?user_id='.Auth::user()->id)}}" target="_blank" class="mt-5 btn-shadow">Semua</a>
+                @foreach ($getAllCategoryBook as $itemCategoryBook)
+                <a href="{{url('/bookUser/export?user_id='.Auth::user()->id.'&category_book_id='.$itemCategoryBook->id)}}" target="_blank" class="mt-5 btn-shadow">{{$itemCategoryBook->name}}</a>
+                @endforeach
+            </div>
+        </div>
+    </div>
 </div>
 <div>
-    <div class="mt-6 grid gap-6 grid-cols-4">
+    <div class=" grid gap-6 grid-cols-4">
         @forelse ($getAllBook as $item)
         <div class="bg-white col-span-2 border rounded-lg shadow-md relative">
             <div class="absolute right-0 justify-end px-4 pt-3">

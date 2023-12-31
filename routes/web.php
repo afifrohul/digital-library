@@ -6,6 +6,7 @@ use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminCategoryBookController;
 use App\Http\Controllers\AdminBookController;
 use App\Http\Controllers\UserBookController;
+use App\Http\Controllers\BookExportController;
 use App\Http\Controllers\UserDashboardController;
 
 /*
@@ -24,6 +25,9 @@ Route::get('/', function () {
 });
 
 Route::get('/redirect-role', [RedirectRoleController::class, 'index']);
+
+Route::get('/book/export', [BookExportController::class, 'export']);
+Route::get('/bookUser/export', [BookExportController::class, 'exportUser']);
 
 Route::group(['middleware' => ['role:admin']], function() {
     
