@@ -60,14 +60,14 @@
                                     <svg class="w-10 h-10 mt-8 text-teal-500 group-hover:text-teal-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#14B8A6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
                                     <p class='text-sm text-gray-400 group-hover:text-teal-600 pt-1 tracking-wider' id="fileBook">Pilih File</p>
                                 </div>
-                                <input type='file' class="hidden" name="file" id="files" onchange="displayFileBook(this)" />
+                                <input type='file' accept=".pdf" class="hidden" name="file" id="files" onchange="displayFileBook(this)" />
                             </label>
                         </div>
                     </div>
                 </div>
                 <div class="mt-3 grid grid-cols-2 gap-6 xl:grid-cols-1 items-center">
                     <div>
-                        <label class="text-gray-700 ml-1">Foto : </label>
+                        <label class="text-gray-700 ml-1">Cover : </label>
                         <div class='flex items-center justify-center w-full mt-2'>
                             <label class='flex flex-col border-4 border-dashed w-full h-32 hover:bg-gray-100 hover:border-teal-500 group'>
                                 <div class='flex flex-col items-center justify-center pt-7 text-center'>
@@ -83,7 +83,7 @@
                         <div class='flex items-center justify-center w-full mt-2'>
                             <label class='flex flex-col border-4 border-dashed w-full h-auto border-teal-500 group bg-gray-300'>
                                     <div class='flex flex-col items-center justify-center py-1'>
-                                        <img id="preview" src="{{asset('assets/upload/staff/default.png')}}" alt="preview" class="object-cover h-32">
+                                        <img id="preview" src="{{asset('assets/upload/cover/default.png')}}" alt="preview" class="object-cover h-32">
                                     </div>
                             </label>
                         </div>
