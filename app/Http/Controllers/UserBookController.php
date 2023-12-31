@@ -11,10 +11,33 @@ use File;
 class UserBookController extends Controller
 {
     private $param;
-    public function index()
+    public function index(Request $request)
     {
-        $this->param['getAllBook'] = Book::where('user_id', \Auth::id())->get();
+        $categoryId = $request->get('category_book_id');
+        
+        if ($categoryId == null) {
+            $this->param['getAllBook'] = Book::all();
+        } else {
+            $this->param['getAllBook'] = Book::where('category_book_id', $categoryId)->get();
+
+        }
+
+        $this->param['getAllCategoryBook'] = CategoryBook::all();
         return view('user.pages.book.page-list-book', $this->param);
+    }
+    
+    public function indexUser(Request $request)
+    {
+        $categoryId = $request->get('category_book_id');
+        
+        if ($categoryId == null) {
+            $this->param['getAllBook'] = Book::where('user_id', \Auth::id())->get();
+        } else {
+            $this->param['getAllBook'] = Book::where('user_id', \Auth::id())->where('category_book_id', $categoryId)->get();
+
+        }
+        $this->param['getAllCategoryBook'] = CategoryBook::all();
+        return view('user.pages.book.page-list-book-user', $this->param);
     }
 
     public function add()

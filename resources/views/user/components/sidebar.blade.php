@@ -14,8 +14,12 @@
 
         <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">Master Data</p>
         <a href="{{url('/back-user/book')}}" class="mb-3 @if (Request::segment(2) == 'book') text-teal-600 @endif capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+            <i class="fad fa-book text-xs mr-2"></i>
+            &nbsp;List Semua Buku
+        </a>
+        <a href="{{url('/back-user/bookUser')}}" class="mb-3 @if (Request::segment(2) == 'bookUser') text-teal-600 @endif capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
             <i class="fad fa-book-open text-xs mr-2"></i>
-            &nbsp;Buku
+            &nbsp;Buku Saya
         </a>
     </div>
 </div>

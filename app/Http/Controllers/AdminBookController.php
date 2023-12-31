@@ -11,9 +11,16 @@ use File;
 class AdminBookController extends Controller
 {
     private $param;
-    public function index()
+    public function index(Request $request)
     {
-        $this->param['getAllBook'] = Book::all();
+        $categoryId = $request->get('category_book_id');
+        
+        if ($categoryId == null) {
+            $this->param['getAllBook'] = Book::all();
+        } else {
+            $this->param['getAllBook'] = Book::where('category_book_id', $categoryId)->get();
+
+        }
         $this->param['getAllCategoryBook'] = CategoryBook::all();
         return view('admin.pages.book.page-list-book', $this->param);
     }

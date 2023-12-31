@@ -1,4 +1,4 @@
-@extends('user.layouts.app')
+@extends('admin.layouts.app')
 @section('extraCSS')
 <link href="{{ asset('assets/vendor-admin/summernote/summernote.min.css') }}" rel="stylesheet">
 @endsection
@@ -9,7 +9,7 @@
             <h1 class="h6">Tambah Buku</h1>
         </div>
         <div class="card-body">
-            <form method="POST" action="{{url('/back-user/book/new')}}" enctype="multipart/form-data">
+            <form method="POST" action="{{url('/back-admin/book/new')}}" enctype="multipart/form-data">
                 @csrf
                 <div>
                     <label class="text-gray-700 ml-1">Judul Buku: </label>

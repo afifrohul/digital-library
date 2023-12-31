@@ -47,7 +47,8 @@ Route::group(['middleware' => ['role:user']], function() {
 
     Route::get('/back-user/dashboard', [UserDashboardController::class, 'index']);
     Route::get('back-user/book', [UserBookController::class, 'index']);
-    Route::get('back-user/book/add', [UserBookController::class, 'add']);
+    Route::get('back-user/bookUser', [UserBookController::class, 'indexUser']);
+    Route::get('back-user/bookUser/add', [UserBookController::class, 'add']);
     Route::post('back-user/book/new', [UserBookController::class, 'store']);
     Route::post('back-user/book/edit/{book}', [UserBookController::class, 'edit']);
     Route::put('back-user/book/update/{book}', [UserBookController::class, 'update']);
