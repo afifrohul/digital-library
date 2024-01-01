@@ -88,7 +88,7 @@
                     @csrf
                     <span class="login100-form-title" style="color: white;">Digital Library Register</span>
                     <!-- Validation Errors -->
-                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                    <x-auth-validation-errors style="color: red" class="mb-4" :errors="$errors" />
                     <div class="wrap-input100 validate-input" data-validate = "Valid name is required">
                         <input class="input100" type="text" name="name" placeholder="name">
                         <span class="focus-input100"></span>

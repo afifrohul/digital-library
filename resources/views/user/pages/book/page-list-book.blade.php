@@ -114,6 +114,7 @@
             </div>
         </div>
         @endforelse
+        {{ $getAllBook->links() }}
     </div>
 </div>
 <script>

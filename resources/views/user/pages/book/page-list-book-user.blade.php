@@ -132,6 +132,7 @@
             </div>
         </div>
         @endforelse
+        {{ $getAllBook->links() }}
     </div>
 
     

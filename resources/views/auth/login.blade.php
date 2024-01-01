@@ -83,10 +83,10 @@
                     @csrf
                     <span class="login100-form-title" style="color: white;">Digital Library Login</span>
                     <!-- Session Status -->
-                    <x-auth-session-status class="mb-4" :status="session('status')" />
+                    <x-auth-session-status style="color: red" class="mb-4" :status="session('status')" />
 
                     <!-- Validation Errors -->
-                    <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                    <x-auth-validation-errors style="color: red" class="mb-4" :errors="$errors" />
                     <div class="wrap-input100 validate-input" data-validate = "Valid email is required">
                         <input class="input100" type="text" name="email" placeholder="email">
                         <span class="focus-input100"></span>

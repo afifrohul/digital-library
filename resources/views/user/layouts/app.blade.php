@@ -15,6 +15,20 @@
   <link rel="stylesheet" type="text/css" href="{{asset('assets/css-admin/style.css')}}">
   <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
   @yield('extraCSS')
+  <style>
+    .flex.justify-between.flex-1 {
+        display: none
+    }
+
+    .flex.items-center.justify-between > :nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 0%;
+        justify-content:space-between;
+    }
+
+
+  </style>
 </head>
 <body class="bg-gray-100">
     @include('user.components.navbar')

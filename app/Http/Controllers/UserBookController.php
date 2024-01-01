@@ -16,9 +16,9 @@ class UserBookController extends Controller
         $categoryId = $request->get('category_book_id');
         
         if ($categoryId == null) {
-            $this->param['getAllBook'] = Book::all();
+            $this->param['getAllBook'] = Book::paginate(10);
         } else {
-            $this->param['getAllBook'] = Book::where('category_book_id', $categoryId)->get();
+            $this->param['getAllBook'] = Book::where('category_book_id', $categoryId)->paginate(10);
 
         }
 
@@ -31,9 +31,9 @@ class UserBookController extends Controller
         $categoryId = $request->get('category_book_id');
         
         if ($categoryId == null) {
-            $this->param['getAllBook'] = Book::where('user_id', \Auth::id())->get();
+            $this->param['getAllBook'] = Book::where('user_id', \Auth::id())->paginate(10);
         } else {
-            $this->param['getAllBook'] = Book::where('user_id', \Auth::id())->where('category_book_id', $categoryId)->get();
+            $this->param['getAllBook'] = Book::where('user_id', \Auth::id())->where('category_book_id', $categoryId)->paginate(10);
 
         }
         $this->param['getAllCategoryBook'] = CategoryBook::all();
