@@ -8,8 +8,6 @@ use App\Models\CategoryBook;
 use Illuminate\Support\Facades\Auth;
 use File;
 
-
-
 class AdminBookController extends Controller
 {
     private $param;
